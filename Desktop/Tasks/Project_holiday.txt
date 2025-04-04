@@ -1,0 +1,78 @@
+Step 1:
+
+# Define a dictionary to store flight costs for different cities
+    city_flight_costs = {
+        "Cape Town": 2000,
+        "Durban": 1500,
+        "Johannesburg": 1200,
+        "East London": 1500
+    }
+
+    // Define the price per night for the hotel
+    hotel_price_per_night = 800
+
+    // Define the daily cost for car rental
+    car_rental_cost_per_day = 450
+
+Step 2
+
+# Function to calculate hotel cost
+    FUNCTION hotel_cost(num_nights)
+        RETURN num_nights * hotel_price_per_night
+    END FUNCTION
+
+Step 3:
+
+# Function to calculate plane cost
+    FUNCTION plane_cost(city_flight)
+        IF city_flight IN city_flight_costs THEN
+            RETURN city_flight_costs[city_flight]
+        ELSE
+            RETURN 0  // If city not found, return 0 or handle error
+        END IF
+    END FUNCTION
+
+Step 4:
+
+# Function to calculate car rental cost
+    FUNCTION car_rental(rental_days)
+        RETURN rental_days * car_rental_cost_per_day
+    END FUNCTION
+
+Step 5:
+
+# Function to calculate total holiday cost
+    FUNCTION holiday_cost(num_nights, city_flight, rental_days)
+        total_hotel_cost = hotel_cost(num_nights)
+        total_plane_cost = plane_cost(city_flight)
+        total_car_rental_cost = car_rental(rental_days)
+        RETURN total_hotel_cost + total_plane_cost + total_car_rental_cost
+    END FUNCTION
+
+Step 6:
+
+# Get user inputs
+    PRINT "Enter the city you will be flying to (Cape Town, Durban, Johannesburg, East London): "
+    city_flight = INPUT
+    PRINT "Enter the number of nights you will be staying at a hotel: "
+    num_nights = INPUT
+    PRINT "Enter the number of days for which you will be hiring a car: "
+    rental_days = INPUT
+
+Step 7:
+
+# Calculate total holiday cost
+    total_cost = holiday_cost(num_nights, city_flight, rental_days)
+
+Step 8:
+
+# Print holiday details
+    PRINT "Holiday Details:"
+    PRINT "City of Flight: " + city_flight
+    PRINT "Number of Nights at Hotel: " + num_nights
+    PRINT "Number of Days for Car Rental: " + rental_days
+    PRINT "Total Hotel Cost: " + hotel_cost(num_nights)
+    PRINT "Total Plane Cost: " + plane_cost(city_flight)
+    PRINT "Total Car Rental Cost: " + car_rental(rental_days)
+    PRINT "Total Holiday Cost: " + total_cost
+END

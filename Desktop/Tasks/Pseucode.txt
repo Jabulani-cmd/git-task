@@ -1,0 +1,57 @@
+Question 1
+
+Start by using a variable maxi_num to zero. This variable will keep track of the largest number entered.
+
+Use a loop to repeatedly ask the user for input. The loop will continue until the user enters zero.
+
+For each positive number entered, compare it with the current max_num. If the entered number is larger, update max_num with this new number.
+
+Once the user enters zero, exit the loop and output the value of max_num, which will be the largest number entered.
+
+
+Question 2
+
+Prompt the user to enter their name and store the input in a variable called first_name.
+
+Print the stored name followed by the phrase "Hello, World" in a single line.
+
+Question 3
+
+Start by initializing variables to keep track of the sum of the integers (sum_numbers) and the count of integers entered (count).
+
+Use a loop to repeatedly prompt the user for input. Each valid integer is added to sum_numbers, and count is incremented.
+
+The loop continues until the user enters a non-integer value, which triggers an exception and exits the loop.
+
+After exiting the loop, check if any integers were entered. If so, compute the average by dividing the sum by the count. If no integers were entered, inform the user.
+
+Question 4
+
+Continuously prompt the user to enter items and their statuses until a blank line is provided. Each entry should be in the format "item, status".
+
+For each entry, check if the status is "not bought". If it is, add the item to a list of items left to buy.
+
+Once all items have been entered, sort the list of remaining items alphabetically.
+
+Print the sorted list of items that are still left to buy.
+
+Question 5
+
+The flowchart begins with a START symbol, which indicates the beginning of the algorithm.
+
+The flowchart has Read X, Y, meaning the program takes two inputs.
+
+The operations in the flowchart involve:
+
+S = X + Y (Sum of X and Y)
+A = S / 2 (Half of the sum)
+P = X * Y (Product of X and Y)
+
+The flowchart includes Write S, A, P, meaning the computed values are displayed.
+
+The STOP symbol in the flowchart means the program ends.
+
+
+
+
+

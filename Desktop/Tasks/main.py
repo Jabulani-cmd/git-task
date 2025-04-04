@@ -1,0 +1,7 @@
+flight_cost = (1000)
+insurance = (35)
+passport = (50)
+baggage = (25)
+total_cost = (flight_cost + insurance + passport + baggage)
+print(total_cost)
+print("Total cost of the trip is: R", total_cost)

@@ -1,0 +1,1 @@
+print("Hello, World")  # Fixed SyntaxError by adding the missing closing parenthesis

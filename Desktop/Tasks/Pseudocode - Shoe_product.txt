@@ -1,0 +1,122 @@
+BEGIN Nike Warehouse Management System
+
+1. DEFINE CLASS Shoe:
+   - ATTRIBUTES:
+     * country (string)
+     * code (string)
+     * product (string)
+     * cost (float)
+     * quantity (integer)
+   
+   - METHODS:
+     * CONSTRUCTOR(country, code, product, cost, quantity):
+       - Initialize all attributes
+       - Convert cost to float
+       - Convert quantity to integer
+     
+     * get_cost:
+       - RETURN cost
+     
+     * get_quantity:
+       - RETURN quantity
+     
+     * __str__():
+       - RETURN string representation of shoe attributes (comma-separated)
+
+2. INITIALIZE GLOBAL VARIABLE:
+   - shoe_list = empty list
+
+3. DEFINE FUNCTIONS:
+
+   - FUNCTION read_shoes_data:
+     TRY:
+       - OPEN "inventory.txt" for reading
+       - SKIP first line (header)
+       - FOR EACH line in file:
+         - SPLIT line by commas into: country, code, product, cost, quantity
+         - CREATE new Shoe object with these values
+         - APPEND object to shoe_list
+     EXCEPT FileNotFoundError:
+       - PRINT error message
+     EXCEPT Other errors:
+       - PRINT error details
+
+   - FUNCTION capture_shoes:
+     - PRINT "Enter shoe details:"
+     - GET country, code, product from user
+     - GET cost (convert to float)
+     - GET quantity (convert to integer)
+     - CREATE new Shoe object
+     - ADD to shoe_list
+     - PRINT confirmation message
+
+   - FUNCTION view_all:
+     IF shoe_list is empty:
+       - PRINT "No shoes in inventory"
+     ELSE:
+       - PRINT table header
+       - FOR EACH shoe in shoe_list:
+         - PRINT shoe details in formatted row
+
+   - FUNCTION re_stock:
+     - FIND shoe with minimum quantity
+     - PRINT "Lowest stock: [product] ([quantity] remaining)"
+     - ASK "Restock? (y/n)"
+     IF yes:
+       - GET quantity to add
+       - UPDATE shoe quantity
+       - CALL update_file
+       - PRINT confirmation
+
+   - FUNCTION search_shoe:
+     - GET product code from user
+     - SEARCH shoe_list for matching code
+     IF found:
+       - PRINT shoe details
+     ELSE:
+       - PRINT "Not found"
+
+   - FUNCTION value_per_item:
+     - FOR EACH shoe in shoe_list:
+       - CALCULATE value = cost * quantity
+       - PRINT "[product]: $[value]"
+
+   - FUNCTION highest_qty:
+     - FIND shoe with maximum quantity
+     - PRINT "[product] should be put on sale ([quantity] in stock)"
+
+   - FUNCTION update_file:
+     - OPEN "inventory.txt" for writing
+     - WRITE header line
+     - FOR EACH shoe in shoe_list:
+       - WRITE shoe details to file
+
+4. MAIN MENU SYSTEM:
+   - CALL read_shoes_data to load initial data
+   
+   - WHILE True:
+     - PRINT menu options:
+       1. View all products
+       2. Add new product
+       3. Restock items
+       4. Search product
+       5. Assess inventory value
+       6. Check overstocked items
+       7. Exit
+     
+     - GET user choice
+     
+     - SWITCH choice:
+       CASE 1: CALL view_all
+       CASE 2: CALL capture_shoes
+       CASE 3: CALL re_stock
+       CASE 4: CALL search_shoe
+       CASE 5: CALL value_per_item
+       CASE 6: CALL highest_qty
+       CASE 7: 
+         - CALL update_file
+         - PRINT "Goodbye"
+         - EXIT loop
+       DEFAULT: PRINT "Invalid choice"
+
+END PROGRAM
